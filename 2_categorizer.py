@@ -14,19 +14,45 @@ count_client = 0
 count_good = 0 
 count_average = 0 
 count_bad = 0 
-pop_twitter = 0
-pop_facebook = 0
-pop_google = 0
-pop_blog = 0
-pop_website = 0 
-pop_rh = 0
-pop_prod = 0
-pop_com = 0 
-pop_gouv = 0 
-pop_perf = 0 
-pop_concur = 0 
-pop_digital = 0 
-pop_client = 0 
+good_twitter = 0
+average_twitter = 0
+bad_twitter = 0
+good_facebook = 0
+average_facebook = 0
+bad_facebook = 0
+good_google = 0
+average_google = 0
+bad_google = 0
+good_blog = 0
+average_blog = 0
+bad_blog = 0
+good_website = 0 
+average_website = 0 
+bad_website = 0 
+good_rh = 0
+average_rh = 0
+bad_rh = 0
+good_prod = 0
+average_prod = 0
+bad_prod = 0
+good_com = 0 
+average_com = 0 
+bad_com = 0 
+good_gouv = 0 
+average_gouv = 0 
+bad_gouv = 0 
+good_perf = 0 
+average_perf = 0 
+bad_perf = 0 
+good_concur = 0 
+average_concur = 0 
+bad_concur = 0 
+good_digital = 0 
+average_digital = 0 
+bad_digital = 0 
+good_client = 0 
+average_client = 0 
+bad_client = 0 
 
 
 #COUNT : POPULARITE BPCE, BP, CE, NATIXIS !!!!!!!!
@@ -52,79 +78,106 @@ with open("outputs/final_output.csv", "r") as f:
 	lines = f.readlines()
 f.close()
 for line in lines:
-	pop = 0
+	good = 0
+        bad = 0
+        average = 0
 	if "good" in line: 
 		count_good = count_good + 1
-		pop = 1
+		 good = 1
 	elif "average" in line: 
 		count_average = count_average + 1
+                average = 1
 	elif "bad" in line: 
 		count_bad = count_bad + 1
-		pop = -1
+		bad = 1
 	if "website" in line: 
 		count_website += 1
-		pop_website += pop
+		good_website += good
+		average_website += average
+		bad_website += bad
 	elif "blog" in line: 
 		count_blog += 1
-		pop_blog += pop
+		good_blog += good
+		average_blog += average
+		bad_blog += bad
 	elif "Twitter" in line: 
 		count_twitter += 1
-		pop_twitter += pop
+		good_twitter += good
+		average_twitter += average
+		bad_twitter += bad
 	elif "facebook" in line: 
 		count_facebook += 1
-		pop_facebook += pop
+		good_facebook += good
+		average_facebook += average
+		bad_facebook += bad
 	elif "Google" in line:
 		count_google += 1
-		pop_google += pop
+		good_google += good
+		average_google += average
+		bad_google += bad
  
-
-
-	for keyword in prod:
+        for keyword in prod:
 		if keyword in line:
 			count_prod += 1
-			pop_prod += pop
+			good_prod += good
+			average_prod += average
+			bad_prod += bad
 			break
 
 	for keyword in com:
 		if keyword in line:
 			count_com += 1
-			pop_com += pop
+			good_com += good
+			average_com += average
+			bad_com += bad
 			break
 	for keyword in gouv:
 		if keyword in line:
 			count_gouv += 1
-			pop_gouv += pop
+			good_gouv += good
+			average_gouv += average
+			bad_gouv += bad
 			break
 	for keyword in rh:
 		if keyword in line:
 			count_rh += 1
-			pop_rh += pop
+			good_rh += good
+			average_rh += average
+			bad_rh += bad
 			break
 	for keyword in perf:
 		if keyword in line:
 			count_perf += 1
-			pop_perf += pop
+			good_perf += good
+			average_perf += average
+			bad_perf += bad
 			break
 
 	for keyword in concur:
 		if keyword in line:
 			count_concur += 1
-			pop_concur += pop
+			good_concur += good
+			average_concur += average
+			bad_concur += bad
 			break
 	
 	for keyword in digital:
 		if keyword in line:
 			count_digital += 1
-			pop_digital += pop
+			good_digital += good
+			average_digital += average
+			bad_digital += bad
 			break
 
 	for keyword in client:
 		if keyword in line:
 			count_client += 1
-			pop_client += pop
+			good_client += good
+			average_client += average
+			bad_client += bad
 			break
 
 f = open("variables.py", "w")
 
-
-f.write("count_twitter = %d" % count_twitter + "\n" + "count_facebook = %d" % count_facebook + "\n" + "count_google = %d" % count_google + "\n" + "count_blog = %d" % count_blog + "\n" + "count_website = %d" % count_website + "\n" + "count_prod = %d" % count_prod + "\n" + "count_com = %d" % count_com + "\n" + "count_gouv = %d" % count_gouv + "\n" + "count_perf = %d" % count_perf + "\n" + "count_concur = %d" % count_concur + "\n" + "count_digital = %d" % count_digital + "\n" + "count_client = %d" % count_client + "\n" + "count_good = %d" % count_good + "\n" + "count_average = %d" % count_average + "\n" + "count_bad = %d" % count_bad + "\n" + "pop_twitter = %d" % pop_twitter + "\n" + "pop_facebook = %d" % pop_facebook + "\n" + "pop_google = %d" % pop_google + "\n" + "pop_blog = %d" % pop_blog + "\n" + "pop_website = %d" % pop_website + "\n" + "pop_prod = %d" % pop_prod + "\n" + "pop_com = %d" % pop_com + "\n" + "pop_gouv = %d" % pop_gouv + "\n" + "pop_perf = %d" % pop_perf + "\n" + "pop_concur = %d" % pop_concur + "\n" + "pop_digital = %d" % pop_digital + "\n" + "pop_client = %d" % pop_client + "\n" )
+f.write("count_twitter = %d" % count_twitter + "\n" + "count_facebook = %d" % count_facebook + "\n" + "count_google = %d" % count_google + "\n" + "count_blog = %d" % count_blog + "\n" + "count_website = %d" % count_website + "\n" + "count_prod = %d" % count_prod + "\n" + "count_com = %d" % count_com + "\n" + "count_gouv = %d" % count_gouv + "\n" + "count_perf = %d" % count_perf + "\n" + "count_concur = %d" % count_concur + "\n" + "count_digital = %d" % count_digital + "\n" + "count_client = %d" % count_client + "\n" + "count_good = %d" % count_good + "\n" + "count_average = %d" % count_average + "\n" + "count_bad = %d" % count_bad + "\n" + "good_twitter = %d" % good_twitter + "\n" + "average_twitter = %d" % average_twitter + "\n" + "bad_twitter = %d" % bad_twitter + "\n" + "good_facebook = %d" % good_facebook + "\n" + "average_facebook = %d" % average_facebook + "\n" + "bad_facebook = %d" % bad_facebook + "\n" + "good_google = %d" % good_google + "\n" + "average_google = %d" % averaged_google + "\n" + "bad_google = %d" % bad_google + "\n" + "good_blog = %d" % good_blog + "\n" + "average_blog = %d" % average_blog + "\n" + "bad_blog = %d" % bad_blog + "\n" + "good_website = %d" % good_website + "\n" + "average_website = %d" % average_website + "\n" + "bad_website = %d" % bad_website + "\n" + "good_prod = %d" % good_prod + "\n" + "average_prod = %d" % average_prod + "\n" + "bad_prod = %d" % bad_prod + "\n" + "good_com = %d" % good_com + "\n" + "average_com = %d" % average_com + "\n" + "bad_com = %d" % bad_com + "\n" + "good_gouv = %d" % good_gouv + "\n" + "average_gouv = %d" % average_gouv + "\n" + "bad_gouv = %d" % bad_gouv + "\n" + "good_perf = %d" % good_perf + "\n" + "average_perf = %d" % average_perf + "\n" + "bad_perf = %d" % bad_perf + "\n" + "good_concur = %d" % good_concur + "\n" + "average_concur = %d" % average_concur + "\n" + "bad_concur = %d" % bad_concur + "\n" + "good_digital = %d" % good_digital + "\n" + "average_digital = %d" % average_digital + "\n" + "bad_digital = %d" % bad_digital + "\n" + "good_client = %d" % good_client + "\n" + "average_client = %d" % average_client + "\n" + "bad_client = %d" % bad_client + "\n") 
+f.close()
