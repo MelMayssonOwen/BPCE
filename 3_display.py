@@ -19,7 +19,7 @@ explode=(0, 0, 0, 0)
 
 the_grid = GridSpec(4, 4)
 
-figure(1, figsize=(9,9))
+figure(1, figsize=(20,11))
 
 subplot(the_grid[0,0])
 
@@ -82,7 +82,6 @@ N = len(y)
 x = range(N)
 width = 0.25/0.5
 bar(x, y, width, color="blue")
-
-figure(2, figsize = (9,9))
-
+subplots_adjust(left=0.15, bottom=0.08, right=0.87, top=0.85,
+                wspace=0.21, hspace=0)
 show()
